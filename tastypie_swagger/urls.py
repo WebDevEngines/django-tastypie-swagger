@@ -3,13 +3,14 @@ try:
 except ImportError:
     from django.conf.urls.defaults import url
 
+from django.contrib.auth.decorators import login_required
 from .views import SwaggerView, ResourcesView, SchemaView
 
 urlpatterns = [
-    url(r'^$', SwaggerView.as_view(), name='index'),
-    url(r'^resources/$', ResourcesView.as_view(), name='resources'),
-    url(r'^schema/(?P<resource>\S+)$', SchemaView.as_view()),
-    url(r'^schema/$', SchemaView.as_view(), name='schema')
+    url(r'^$', login_required(SwaggerView.as_view()), name='index'),
+    url(r'^resources/$', login_required(ResourcesView.as_view()), name='resources'),
+    url(r'^schema/(?P<resource>\S+)$', login_required(SchemaView.as_view())),
+    url(r'^schema/$', login_required(SchemaView.as_view()), name='schema')
 ]
 
 from django import get_version
