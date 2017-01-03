@@ -1,5 +1,3 @@
-![Concentric Sky](https://concentricsky.com/media/uploads/images/csky_logo.jpg)
-
 ## Django Tastypie Swagger
 
 **django-tastypie-swagger** is a small adapter library to construct [Swagger](http://swagger.wordnik.com/) documentation from [Tastypie](https://django-tastypie.readthedocs.org) resources.
