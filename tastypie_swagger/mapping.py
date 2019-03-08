@@ -13,6 +13,12 @@ from tastypie import fields
 
 from .utils import trailing_slash_or_none, urljoin_forced
 
+# Python 3 compatibility hack
+try:
+    unicode('')
+except NameError:
+    unicode = str
+
 logger = logging.getLogger(__name__)
 # Ignored POST fields
 IGNORED_FIELDS = ['id', ]
