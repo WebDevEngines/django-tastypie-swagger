@@ -4,7 +4,11 @@ import json
 from django.views.generic import TemplateView
 from django.http import HttpResponse, Http404
 from django.core.exceptions import ImproperlyConfigured
-from django.core.urlresolvers import reverse
+
+try:
+    from django.core.urlresolvers import reverse
+except ModuleNotFoundError:
+    from django.urls import reverse
 
 import tastypie
 
